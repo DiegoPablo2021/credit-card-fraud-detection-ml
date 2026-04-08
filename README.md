@@ -1,107 +1,121 @@
 # Credit Card Fraud Detection with Machine Learning
 
-## About the Project
+> Detecting fraud with 99% accuracy can still be useless, this project shows why.
 
-This project aims to detect fraudulent credit card transactions using Machine Learning techniques.
+This project explores credit card fraud detection using machine learning in a highly imbalanced dataset, where traditional accuracy can hide poor fraud detection performance. The focus here is not only training models, but evaluating them with the metrics that actually matter in a business-critical fraud scenario.
 
-Fraud detection is a real-world problem faced by financial institutions, where the main challenge is identifying rare fraudulent transactions within a highly imbalanced dataset.
+## Business Problem
 
----
+Credit card fraud detection is a real-world classification problem with a severe class imbalance. In this dataset, legitimate transactions represent about 99.8% of observations, while fraudulent transactions account for only 0.2%.
 
-## Objective
+That means a model can achieve very high accuracy and still fail at the most important task: identifying fraud.
 
-Build and evaluate machine learning models to classify transactions as fraudulent or non-fraudulent, focusing on performance metrics suitable for imbalanced data.
+## Project Goal
 
----
+Build and compare classification models to detect fraudulent transactions, prioritizing metrics such as recall, precision, F1-score, and ROC-AUC instead of relying on accuracy alone.
 
-## Dataset
+## Workflow
 
+- exploratory data analysis
+- class imbalance analysis
+- feature engineering on transaction amount
+- baseline modeling with Logistic Regression
+- ensemble modeling with Random Forest and XGBoost
+- threshold tuning to improve fraud recall
+- SMOTE resampling for minority-class learning
+- model comparison focused on fraud detection trade-offs
 
-The dataset contains anonymized credit card transactions, including:
+## Visual Preview
 
-- Time
-- Amount
-- V1 to V28 (PCA-transformed features)
-- Class (0 = normal, 1 = fraud)
+### ROC Curve
 
-The dataset is highly imbalanced:
-- ~99.8% normal transactions
-- ~0.2% fraudulent transactions
+<p align="center">
+  <img src="docs/images/roc-curve-preview.svg" alt="ROC Curve Comparison" width="92%" />
+</p>
 
-Dataset available on Kaggle:
-https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+### Class Distribution
 
----
+<p align="center">
+  <img src="docs/images/class-distribution-preview.svg" alt="Fraud vs Non-Fraud Class Distribution" width="92%" />
+</p>
 
-## Exploratory Data Analysis
+### Model Comparison
 
-- Distribution of transaction classes
-- Analysis of transaction amounts
-- Identification of class imbalance
+<p align="center">
+  <img src="docs/images/model-comparison-preview.svg" alt="Model Performance Comparison" width="92%" />
+</p>
 
----
+## Models Evaluated
 
-## Feature Engineering
-
-- Log transformation applied to the "Amount" feature to improve distribution
-- Data scaling using StandardScaler
-
----
-
-## Models Used
-
-- Logistic Regression (baseline)
+- Logistic Regression
+- Logistic Regression with threshold tuning
 - Random Forest
 - XGBoost
+- Logistic Regression with SMOTE
 
----
+## Evaluation Metrics
 
-## Model Evaluation
+Because of the class imbalance, the project prioritizes:
 
-Due to class imbalance, the following metrics were prioritized:
-
-- Precision
-- Recall
+- precision
+- recall
 - F1-score
 - ROC-AUC
 
-### Key Technique
-
-Threshold adjustment was applied to improve fraud detection (recall), showing better performance than default classification.
-
----
-
 ## Results
 
-- Ensemble models (Random Forest, XGBoost) outperformed Logistic Regression
-- Threshold tuning significantly improved fraud detection
-- High accuracy alone proved to be misleading in this context
+- XGBoost achieved the best overall performance.
+- XGBoost reached 0.94 precision, 0.73 recall, and 0.97 ROC-AUC.
+- Random Forest delivered slightly higher recall at 0.76, with strong precision at 0.83.
+- Threshold tuning significantly improved fraud detection recall.
+- SMOTE helped the model learn minority class patterns more effectively.
+- Accuracy alone proved to be misleading due to severe class imbalance.
 
----
+## Key Insight
 
-## Technologies
+In fraud detection, missing a fraudulent transaction is usually more costly than investigating a false positive. This project shows why model evaluation must be aligned with business impact, not just headline accuracy.
+
+## Tech Stack
 
 - Python
 - Pandas
 - NumPy
 - Scikit-learn
 - XGBoost
+- imbalanced-learn
 - Matplotlib
+- Jupyter Notebook
 
----
+## Dataset
 
-## Key Learnings
+The dataset contains anonymized credit card transactions with:
 
-- Accuracy is not reliable for imbalanced datasets
-- Recall is critical in fraud detection problems
-- Threshold tuning can improve model performance
-- Real-world data requires business-oriented evaluation
+- `Time`
+- `Amount`
+- `V1` to `V28` PCA-transformed features
+- `Class` where `0 = non-fraud` and `1 = fraud`
 
----
+Dataset source:
+
+- https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+## Main Learnings
+
+- accuracy is not reliable for imbalanced classification problems
+- recall becomes critical when the cost of missing fraud is high
+- threshold tuning can materially improve fraud detection
+- SMOTE is useful, but must be evaluated against the precision trade-off
+- business context should guide model selection
+
+## Repository Content
+
+- `credit_card_fraud_detection_ml.ipynb`: full notebook with EDA, modeling, evaluation, and analysis
+- `requirements.txt`: project dependencies
 
 ## Author
 
-Diego Pablo  
-[LinkedIn](https://www.linkedin.com/in/diego-pablo/)
+Diego Pablo
 
-[Portfolio](https://diego-pablo.vercel.app/)
+- [GitHub](https://github.com/DiegoPablo2021)
+- [LinkedIn](https://www.linkedin.com/in/diego-pablo/)
+- [Portfolio](https://diego-pablo.vercel.app/)

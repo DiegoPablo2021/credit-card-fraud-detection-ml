@@ -1,0 +1,19 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#0B1220"/>
+  <rect x="36" y="36" width="1128" height="628" rx="22" fill="#111827" stroke="#263244" stroke-width="2"/>
+  <text x="72" y="94" fill="#F8FAFC" font-size="34" font-family="Arial, sans-serif" font-weight="700">Fraud vs Non-Fraud Class Distribution</text>
+  <text x="72" y="132" fill="#94A3B8" font-size="22" font-family="Arial, sans-serif">The dataset is heavily imbalanced, which makes accuracy a misleading metric</text>
+  <line x1="180" y1="570" x2="980" y2="570" stroke="#94A3B8" stroke-width="4"/>
+  <line x1="180" y1="570" x2="180" y2="196" stroke="#94A3B8" stroke-width="4"/>
+  <rect x="318" y="236" width="220" height="334" rx="18" fill="#38BDF8"/>
+  <rect x="652" y="559" width="220" height="11" rx="6" fill="#FB7185"/>
+  <text x="342" y="612" fill="#E2E8F0" font-size="24" font-family="Arial, sans-serif">Non-Fraud</text>
+  <text x="720" y="612" fill="#E2E8F0" font-size="24" font-family="Arial, sans-serif">Fraud</text>
+  <text x="366" y="220" fill="#BAE6FD" font-size="28" font-family="Arial, sans-serif" font-weight="700">99.8%</text>
+  <text x="718" y="545" fill="#FDA4AF" font-size="28" font-family="Arial, sans-serif" font-weight="700">0.2%</text>
+  <rect x="862" y="238" width="226" height="146" rx="18" fill="#0F172A" stroke="#334155"/>
+  <text x="892" y="278" fill="#F8FAFC" font-size="24" font-family="Arial, sans-serif" font-weight="700">Why It Matters</text>
+  <text x="892" y="315" fill="#94A3B8" font-size="20" font-family="Arial, sans-serif">A model can be highly</text>
+  <text x="892" y="343" fill="#94A3B8" font-size="20" font-family="Arial, sans-serif">accurate and still miss</text>
+  <text x="892" y="371" fill="#94A3B8" font-size="20" font-family="Arial, sans-serif">most fraud cases.</text>
+</svg>
