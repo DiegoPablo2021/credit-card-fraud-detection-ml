@@ -16,6 +16,7 @@ Build and evaluate machine learning models to classify transactions as fraudulen
 
 ## Dataset
 
+
 The dataset contains anonymized credit card transactions, including:
 
 - Time
@@ -26,6 +27,9 @@ The dataset contains anonymized credit card transactions, including:
 The dataset is highly imbalanced:
 - ~99.8% normal transactions
 - ~0.2% fraudulent transactions
+
+Dataset available on Kaggle:
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 ---
 
